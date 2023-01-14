@@ -1,0 +1,323 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+:root {
+  --one: #e70025;
+  --two: #42b729;
+  --three: #1877f3;
+  --four: #323332;
+}
+
+/* ------- Generals ---------*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 2rem 0;
+  color: var(--four);
+}
+
+hr {
+  width: 80%;
+  margin: 1rem auto;
+  border: 1px solid rgba(0, 0, 0, 0.039);
+}
+
+/* Container */
+.container {
+  max-width: calc(100vw - 6rem * 2);
+  margin: 0 auto;
+}
+
+/* flex */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.f-center {
+  justify-content: center;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Error */
+
+.err-banner {
+  width: 100%;
+  height: 100vh;
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.err-banner h2 {
+  font-size: 10rem;
+  font-weight: 700;
+}
+.err-banner h3 {
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.err-banner p {
+  margin: 1rem;
+  margin-top: 3rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.err-banner a {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  padding: 0.7rem 1.4rem;
+  background-color: #1a73e7;
+}
+
+/* Banner */
+/* Hero */
+
+.hero {
+  position: relative;
+}
+
+.banner-img {
+  background: linear-gradient(to right, coral, seagreen);
+  height: 100vh;
+  width: 100%;
+}
+
+.banner-content {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.form {
+  padding: 2rem;
+  background-color: white;
+  width: 30%;
+  margin: 0 auto;
+  box-shadow: 5px 5px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.form-box {
+  margin: 0.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  display: inline-block;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  text-align: center;
+  border-radius: 8px;
+  background-color: var(--one);
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.btn2 {
+  background-color: transparent;
+  color: var(--one);
+  border: 2px solid transparent;
+  transition: all 0.4s linear;
+  font-weight: 400;
+}
+
+.btn2:hover {
+  border: 2px solid var(--one);
+}
+
+.link {
+  margin: 0.8rem 0;
+  display: block;
+  color: var(--three);
+  font-weight: 300;
+}
+
+.link2 {
+  color: var(--three);
+  background-color: transparent;
+}
+
+.flash {
+  margin-top: -0.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--one);
+}
+
+.register p {
+  margin: 1rem 0;
+}
+
+.register .banner-img {
+  background: linear-gradient(to left, coral, seagreen);
+}
+
+a:hover {
+  opacity: 0.7;
+}
