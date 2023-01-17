@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+      </head>
+      <body>
+        <header class="header">
+          <div class="container">
+            <nav class="flex">
+              <a class="logo" href="/">kshem</a>
+            </nav>
+          </div>
+        </header>
+        <main>
+          <section class="banner">
+            <div class="container flex f-center h-screen">
+              <div class="form">
+                <h1>signup</h1>
+                <form action="/users/new" method="POST">
+                  <fieldset>
+                    <div class="flex">
+                      <input
+                        class="form-box"
+                        type="text"
+                        name="firstname"
+                        placeholder="firstname"
+                      />
+
+                      <input
+                        class="form-box"
+                        type="text"
+                        name="lastname"
+                        placeholder="lastname"
+                      />
+                    </div>
+
+                    <input
+                      class="form-box"
+                      type="email"
+                      name="email"
+                      placeholder="email"
+                    />
+
+                    <input
+                      class="form-box"
+                      type="password"
+                      name="password"
+                      placeholder="password"
+                    />
+
+                    <input
+                      class="form-box"
+                      type="text"
+                      name="city"
+                      placeholder="city"
+                    />
+
+                    <div class="flex f-center">
+                      <input
+                        class="btn form-box"
+                        type="submit"
+                        value="submit"
+                      />
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </section>
+        </main>
+      </body>
+    </html>
+  </body>
+</html>

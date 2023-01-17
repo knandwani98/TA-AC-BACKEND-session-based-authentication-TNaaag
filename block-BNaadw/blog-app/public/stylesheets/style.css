@@ -1,0 +1,540 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+:root {
+  --accent: #128084;
+  --pri: #efb462;
+  --sec: #dd8766;
+  --dark: #544766;
+}
+
+/* ------- Generals ---------*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  color: var(--sec);
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* text-transform: lowercase; */
+}
+
+/* Container */
+.container {
+  max-width: calc(100vw - 6rem * 2);
+  margin: 0 auto;
+}
+
+/* screen */
+
+.h-screen {
+  height: 100vh;
+}
+
+/* flex */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.f-start {
+  justify-content: flex-start;
+}
+
+.f-center {
+  justify-content: center;
+}
+
+.f-gap {
+  gap: 3rem;
+}
+
+/* center */
+.center {
+  text-align: center;
+}
+
+/* gaps */
+.gap4 {
+  padding: 4rem 0;
+}
+
+/* Error */
+
+.err-banner {
+  width: 100%;
+  height: 100vh;
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.err-banner h2 {
+  font-size: 10rem;
+  font-weight: 700;
+}
+.err-banner h3 {
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.err-banner p {
+  margin: 1rem;
+  margin-top: 3rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.err-banner a {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  padding: 0.7rem 1.4rem;
+  background-color: #1a73e7;
+}
+
+/* Header */
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header nav {
+  padding: 2rem 0;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--dark);
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.logo:hover {
+  color: var(--sec);
+}
+
+.btn {
+  padding: 0.7rem 1.4rem;
+  background-color: var(--pri);
+  color: var(--dark);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  font-weight: 500;
+  border: none;
+  font-size: 1rem;
+  border: 2px solid transparent;
+}
+
+.btn:hover {
+  background-color: transparent;
+  border-color: var(--sec);
+  color: var(--sec);
+}
+
+/* Banner */
+
+.banner {
+  min-height: 100vh;
+  background: linear-gradient(to top, var(--dark), black) no-repeat center /
+    cover;
+}
+
+.form-box {
+  margin: 0.4rem 0;
+  max-width: 100%;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.banner .form {
+  width: 50%;
+  padding: 3rem;
+  background-color: var(--dark);
+  border: 1px solid black;
+  border-radius: 24px;
+  color: white;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+/* form */
+
+.form p {
+  margin-top: 1rem;
+}
+
+.link {
+  color: var(--pri);
+}
+
+.link:hover {
+  color: var(--sec);
+}
+
+form fieldset .flex {
+  gap: 0.5rem;
+}
+
+.flash {
+  color: red;
+  text-align: center;
+}
+
+/* Articles */
+
+.articles {
+  font-size: 1.5rem;
+  color: var(--pri);
+  text-align: center;
+  font-weight: 700;
+}
+
+.article-card .container {
+  padding: 1rem;
+}
+
+.article-card {
+  flex: 0 0 31.33%;
+  color: rgba(0, 0, 0, 0.6);
+  align-self: stretch;
+  background: linear-gradient(to bottom, black, transparent);
+  border-radius: 18px;
+  border: 2px solid transparent;
+}
+
+.article-card h2 {
+  text-transform: uppercase;
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.article-card p {
+  color: gray;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.article-card a {
+  color: white;
+  font-size: 0.9rem;
+  display: block;
+  /* margin-bottom: 1rem; */
+}
+
+.article-card a:hover {
+  color: var(--accent);
+}
+
+.article-card .likes span {
+  color: var(--accent);
+  margin: 0 1rem;
+}
+
+.article-card .author {
+  font-size: 1rem;
+  text-align: end;
+  font-style: italic;
+  padding-bottom: 1rem;
+}
+
+.article-card .comment {
+  font-style: italic;
+}
+
+.article-card input,
+.article input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  outline: none;
+  color: white;
+}
+
+.article-card footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.comment-btn {
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  padding-right: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 2px var(--accent);
+}
+
+.article-card input::placeholder,
+.article-card input:focus,
+.article input::placeholder,
+.article input:focus {
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+article input:focus {
+  background-color: transparent;
+}
+
+/* Article Page */
+
+.article {
+  min-height: 100vh;
+  background: linear-gradient(-60deg, var(--dark), black);
+}
+
+.article h2 {
+  font-size: 3rem;
+  padding: 1rem;
+  color: var(--accent);
+}
+
+.article .container {
+  min-height: 70vh;
+  max-width: 100vw;
+}
+
+/* ARTICLE SECTION */
+
+.article-banner {
+  flex: 1 1 auto;
+  background: linear-gradient(to top, transparent, var(--accent));
+  padding: 3rem;
+  border-bottom: 1px solid transparent;
+  border-radius: 12px;
+  align-self: stretch;
+}
+
+.article-banner h2 {
+  color: black;
+}
+
+.article p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.article a:hover {
+  color: var(--dark);
+}
+
+.article-banner .author {
+  color: white;
+  display: block;
+  text-align: end;
+  margin: 2rem;
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.article .likes {
+  /* padding-bottom: 1rem; */
+  color: white;
+}
+
+.article span {
+  color: white;
+  padding: 0.5rem 2rem;
+}
+
+/* COMMENTS SECTION */
+
+.aside-bar {
+  background: linear-gradient(to left, black, transparent);
+  flex: 0 1 25%;
+  border-bottom: 1px solid transparent;
+  padding: 3rem;
+  align-self: stretch;
+  border-radius: 12px;
+}
+
+.comments {
+  position: relative;
+}
+
+.comments p {
+  color: white;
+}
+
+.comments hr {
+  border: 0.1px solid rgba(18, 128, 132, 0.3);
+}
+
+.comments .ctrl a {
+  display: block;
+  font-size: 0.8rem;
+  padding: 0 0.4rem;
+}
+
+.comments footer {
+  position: absolute;
+  width: 100%;
+  bottom: -2rem;
+}
