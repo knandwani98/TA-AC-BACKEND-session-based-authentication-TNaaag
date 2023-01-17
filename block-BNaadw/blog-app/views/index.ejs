@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="flex">
+          <a class="logo" href="/">Kshem</a>
+          <ul>
+            <li>
+              <a href="/articles/new" class="btn">new article</a>
+              <a class="btn" href="/users/logout">logout</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="banner gap4">
+        <div class="container gap4">
+          <h1>Welcome to the dashboard</h1>
+        </div>
+        <div class="container flex f-start f-gap wrap">
+          <% if(articles.length) { %> <% articles.forEach((article) => { %>
+          <article class="article-card">
+            <header class="flex f-center">
+              <h2><%= article.title %></h2>
+            </header>
+            <main class="container">
+              <p><%= article.description.substring(0, 160).concat("...") %></p>
+              <a class="author" href=""> - <%= article.author.fullName() %></a>
+              <div class="flex likes">
+                <div class="flex">
+                  <% if (article.isLiked) { %>
+                  <a class="icon" href="">💜</a>
+                  <% } else { %>
+                  <a class="icon" href="">🤍</a>
+                  <% } %>
+                  <span>liked by <%= article.likes %></span>
+                </div>
+                <div>
+                  <a class="comment" href="/articles/<%= article.slug %>"
+                    >view all <%= article.comments.length %> comments</a
+                  >
+                </div>
+              </div>
+            </main>
+            <footer>
+              <form
+                class="flex"
+                action="/articles/<%= article.slug %>/comments/new"
+                method="POST"
+              >
+                <input
+                  type="text"
+                  name="content"
+                  placeholder="Add a comment..."
+                />
+                <button class="comment-btn">post</button>
+              </form>
+            </footer>
+          </article>
+          <%}) } else { %>
+          <div class="flex f-center">
+            <h2 class="flash">No Articles</h2>
+          </div>
+          <% } %>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

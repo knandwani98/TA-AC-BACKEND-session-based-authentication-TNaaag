@@ -4,9 +4,14 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var flash = require("connect-flash");
+var session = require("express-session");
+var MongoStore = require("connect-mongo")(session);
+
+require("dotenv").config();
 
 var indexRouter = require("./routes/index");
-// var usersRouter = require("./routes/users");
+var usersRouter = require("./routes/users");
 var articleRouter = require("./routes/articles");
 
 mongoose.connect("mongodb://localhost/blog-app", (err) => {
@@ -25,8 +30,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+
+app.use(flash());
+
 app.use("/", indexRouter);
-// app.use("/users", usersRouter);
+app.use("/users", usersRouter);
 app.use("/articles", articleRouter);
 
 // catch 404 and forward to error handler

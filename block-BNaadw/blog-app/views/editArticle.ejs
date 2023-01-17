@@ -25,13 +25,22 @@
         <div class="container h-screen flex f-center">
           <div class="form">
             <h1>Create Article</h1>
-            <form action="/articles" method="POST">
+            <form action="/articles/<%= article.slug %>" method="POST">
               <fieldset>
                 <input
                   class="form-box"
                   type="text"
                   name="title"
+                  value="<%= article.title %>"
                   placeholder="title"
+                />
+
+                <input
+                  class="form-box"
+                  type="text"
+                  name="author"
+                  value="<%= article.author %>"
+                  placeholder="author"
                 />
 
                 <textarea
@@ -40,7 +49,9 @@
                   placeholder="description"
                   rows="5"
                   cols="10"
-                ></textarea>
+                >
+<%= article.description %></textarea
+                >
 
                 <div class="flex f-center">
                   <input class="btn form-box" type="submit" value="submit" />
