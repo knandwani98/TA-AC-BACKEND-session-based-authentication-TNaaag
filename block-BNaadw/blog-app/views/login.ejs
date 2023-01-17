@@ -11,40 +11,42 @@
     <header class="header">
       <div class="container">
         <nav class="flex">
-          <a class="logo" href="/">Logo</a>
-          <ul>
-            <li>
-              <a class="btn" href="/">Go Back</a>
-            </li>
-          </ul>
+          <a class="logo" href="/">Kshem</a>
         </nav>
       </div>
     </header>
     <main>
       <section class="banner">
-        <div class="container h-screen flex f-center">
+        <div class="container flex f-center h-screen">
           <div class="form">
-            <h1>Create Article</h1>
-            <form action="/articles" method="POST">
+            <h1>Login</h1>
+            <form action="/users/login" method="POST">
               <fieldset>
+                <% if (flash) { %>
+                <p class="flash"><%= flash %></p>
+                <% } %>
+
                 <input
                   class="form-box"
-                  type="text"
-                  name="title"
-                  placeholder="title"
+                  type="email"
+                  name="email"
+                  placeholder="email"
                 />
 
-                <textarea
+                <input
                   class="form-box"
-                  name="description"
-                  placeholder="description"
-                  rows="5"
-                  cols="10"
-                ></textarea>
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                />
 
                 <div class="flex f-center">
                   <input class="btn form-box" type="submit" value="submit" />
                 </div>
+                <p class="center">
+                  not yet on kshem?
+                  <a class="link" href="/users/new">sign up</a>
+                </p>
               </fieldset>
             </form>
           </div>
