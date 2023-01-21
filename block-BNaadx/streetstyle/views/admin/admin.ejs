@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body class="admin">
+    <header class="header gap4">
+      <!-- LOGO -->
+      <section class="logo-header flex f-center">
+        <a
+          id="nav-logo"
+          title="GO TO ADMIN DASHBOARD"
+          class="logo"
+          href="/admin"
+          >streetstyle dashboard</a
+        >
+      </section>
+
+      <!-- MAIN MENU -->
+      <nav class="main-menu flex f-center">
+        <ul class="flex">
+          <li>
+            <a id="nav-women" href="">women</a>
+          </li>
+
+          <li>
+            <a id="nav-men" href="">men</a>
+          </li>
+
+          <li>
+            <a id="nav-shoes" href="">shoes</a>
+          </li>
+
+          <li>
+            <a id="nav-accesories" href="">accesories</a>
+          </li>
+
+          <li>
+            <a id="nav-sale" href="">sale</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- MAIN MENU -->
+      <nav class="container flex f-right">
+        <ul class="flex">
+          <li>
+            <a class="btn" href="/admin/product/new">Add Product</a>
+          </li>
+
+          <li>
+            <a class="btn" href="/admin/logout">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="gap2">
+      <!-- FLASH ALERT -->
+
+      <% if(flash) { %>
+      <div class="flex f-center">
+        <p class="flash"><%= flash %></p>
+      </div>
+      <% } %>
+
+      <div class="container flex">
+        <aside class="side-bar"></aside>
+        <section class="main container">
+          <!--  ALL PRODUCTS -->
+
+          <section class="product-row flex wrap">
+            <!-- DYNAMIC PRODUCTS -->
+
+            <% if (products) { %> <% products.forEach((product) => { %>
+
+            <!-- product -->
+
+            <div class="product-card <%= product.status %> flex f-col">
+              <!-- image -->
+              <div class="product-img">
+                <div class="labels flex f-col">
+                  <% if (product.discount) { %>
+                  <a href="" class="percentage"><%= product.discount %></a>
+                  <% } %>
+
+                  <a href="" class="icon heart"></a>
+                </div>
+
+                <a href="/admin/product/<%= product._id %>">
+                  <img class="model" src="<%= product.img_model%>" alt="" />
+
+                  <img class="product" src="<%= product.img_product%>" alt="" />
+                </a>
+              </div>
+              <!-- details -->
+              <div class="product-details flex f-col f-center">
+                <a class="look-book" href=""></a>
+                <a class="title" href="/admin/product/<%= product._id %>"
+                  ><%= product.title %></a
+                >
+                <div class="flex f-center">
+                  <% if (product.sale_price) { %>
+                  <p class="sale price currency"><%= product.sale_price %></p>
+                  <% } %>
+                  <p class="regular price currency">
+                    <%= product.regular_price %>
+                  </p>
+                </div>
+                <!-- <div class="variations flex">
+                    <div class="color" id="c1"></div>
+                    <div class="color" id="c2"></div>
+                    <div class="color" id="c3"></div>
+                    <div class="color" id="c4"></div>
+                    <h3>+7</h3>
+                  </div> -->
+              </div>
+            </div>
+
+            <% }) }%>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

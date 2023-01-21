@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="add-product">
+    <header class="header gap4">
+      <!-- LOGO -->
+      <section class="logo-header flex f-center">
+        <a
+          id="nav-logo"
+          title="GO TO ADMIN DASHBOARD"
+          class="logo"
+          href="/admin"
+          >streetstyle dashboard</a
+        >
+      </section>
+
+      <!-- MAIN MENU -->
+      <nav class="container flex f-right">
+        <ul class="flex">
+          <li>
+            <a class="btn" href="/admin">Go Back</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container flex">
+        <!-- <aside class="side-bar"></aside> -->
+        <section class="main container gap2">
+          <h1 class="center gap">Add a Product</h1>
+          <form action="/admin/product" method="POST">
+            <fieldset>
+              <!-- TITLE -->
+              <input
+                class="form-box"
+                type="text"
+                name="title"
+                placeholder="title"
+              />
+
+              <!-- IMAGES -->
+
+              <div class="flex f-gap">
+                <input
+                  class="form-box"
+                  type="text"
+                  name="img_model"
+                  placeholder="model image link"
+                />
+
+                <input
+                  class="form-box"
+                  type="text"
+                  name="img_product"
+                  placeholder="product image link"
+                />
+              </div>
+
+              <!-- DESCRIPTION -->
+              <textarea
+                class="form-box"
+                name="description"
+                placeholder="description"
+                id=""
+                cols="30"
+                rows="3"
+              ></textarea>
+
+              <!-- DEPARTMENT -->
+              <div class="drop-box">
+                <select class="form-box" name="department">
+                  <option hidden value="">--- department ---</option>
+                  <% for (let category of categories ) { %>
+                  <option value="<%= category %>"><%= category %></option>
+                  <% } %>
+                </select>
+              </div>
+
+              <!-- REGULAR PRICE -->
+              <input
+                class="form-box"
+                type="number"
+                name="regular_price"
+                placeholder="price"
+              />
+
+              <!-- SALE PRICE  -->
+              <div class="on_sale">
+                <!-- CHECKBOX  -->
+
+                <input id="on_discount" type="checkbox" />
+                <label for="on_discount">Is on Discount?</label>
+
+                <input
+                  id="sale_price"
+                  class="form-box"
+                  type="number"
+                  name="discount"
+                  placeholder="discount percentage"
+                />
+              </div>
+
+              <!-- OUT OF STOCK ALARM -->
+              <div class="manage_stock">
+                <input id="checkbox" type="checkbox" />
+
+                <label for="checkbox">Manage stock level (quantity)</label>
+
+                <input
+                  id="manage_stock"
+                  class="form-box unit"
+                  type="number"
+                  name="manage_stock"
+                  placeholder="minimum stock"
+                />
+              </div>
+
+              <!-- QUANTITY -->
+              <input
+                class="form-box col-50"
+                type="number"
+                name="quantity"
+                placeholder="quantity"
+              />
+
+              <button class="btn">continue</button>
+            </fieldset>
+          </form>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

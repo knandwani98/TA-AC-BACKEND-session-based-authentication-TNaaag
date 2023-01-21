@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="product-page">
+    <header class="header gap4">
+      <!-- LOGO -->
+      <section class="logo-header flex f-center">
+        <a
+          id="nav-logo"
+          title="GO TO ADMIN DASHBOARD"
+          class="logo"
+          href="/admin"
+          >streetstyle dashboard</a
+        >
+      </section>
+
+      <!-- MAIN MENU -->
+      <nav class="main-menu flex f-center">
+        <ul class="flex">
+          <li>
+            <a id="nav-women" href="">women</a>
+          </li>
+
+          <li>
+            <a id="nav-men" href="">men</a>
+          </li>
+
+          <li>
+            <a id="nav-shoes" href="">shoes</a>
+          </li>
+
+          <li>
+            <a id="nav-accesories" href="">accesories</a>
+          </li>
+
+          <li>
+            <a id="nav-sale" href="">sale</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="container flex f-right">
+        <ul class="flex">
+          <li>
+            <a class="btn" href="/admin/product/<%= product._id %>/edit"
+              >Edit</a
+            >
+          </li>
+
+          <li>
+            <a class="btn" href="/admin/product/<%= product._id %>/delete"
+              >Delete</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- FLASH ALERT -->
+
+      <% if(flash) { %>
+      <div class="flex f-center">
+        <p class="flash"><%= flash %></p>
+      </div>
+      <% } %>
+
+      <div class="container flex">
+        <section class="main container">
+          <div class="flex prod-img">
+            <div>
+              <img class="model" src="<%= product.img_model%>" alt="" />
+            </div>
+            <div>
+              <img class="product" src="<%= product.img_product%>" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-bar">
+          <div class="product-details <%= product.status %>">
+            <p class="department gap"><%= product.department %></p>
+            <h1><%= product.title %></h1>
+
+            <div class="flex f-left price gap">
+              <p class="currency sale price"><%= product.sale_price %></p>
+              <p class="currency regular price"><%= product.regular_price %></p>
+              <p class="percentage"><%= product.discount %></p>
+            </div>
+
+            <p class="description gap"><%= product. description %></p>
+
+            <p class="quantity unit gap">
+              <strong>Quantity</strong> <span>-</span> <%= product.quantity %>
+            </p>
+
+            <% if(product.manage_stock) { %>
+            <p class="quantity unit gap">
+              <strong>Alert on quantity</strong> <span>-</span> <%=
+              product.manage_stock %>
+            </p>
+
+            <% } %>
+
+            <p class="art-num gap">
+              <strong>Art No.</strong> <span>-</span> <%= product._id %>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
