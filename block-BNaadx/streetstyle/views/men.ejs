@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="men-page">
+    <%- include partials/header.ejs %>
+
+    <main>
+      <div class="container flex gap">
+        <!-- SIDEBAR -->
+        <aside class="side-bar"></aside>
+
+        <!-- MAIN-CONTAINER -->
+        <section class="main container">
+          <section class="banner flex f-center">
+            <img src="../images/banner/men/1.jpg" alt="" />
+          </section>
+          <h1 class="gap2">View All</h1>
+
+          <!-- FILTER BAR -->
+          <section class="flex">
+            <div class="filters">
+              <button class="is-open">sort by</button>
+              <button>size</button>
+              <button>color</button>
+              <button>pattern</button>
+              <button>product type</button>
+            </div>
+            <div class="all-items">
+              <p class="total"><%= products.length %> items</p>
+            </div>
+          </section>
+
+          <section class="product-row gap4 flex wrap">
+            <!-- DYNAMIC PRODUCTS -->
+
+            <% if (products) { %> <% products.forEach((product) => { %>
+
+            <!-- product -->
+
+            <div class="product-card <%= product.status %> flex f-col">
+              <!-- image -->
+              <div class="product-img">
+                <div class="labels flex f-col">
+                  <% if (product.discount) { %>
+                  <a href="" class="percentage"><%= product.discount %></a>
+                  <% } %>
+
+                  <a href="" class="icon heart"></a>
+                </div>
+
+                <a href="/<%= product.department %>/<%= product._id %>">
+                  <img class="model" src="<%= product.img_model%>" alt="" />
+
+                  <img class="product" src="<%= product.img_product%>" alt="" />
+                </a>
+              </div>
+              <!-- details -->
+              <div class="product-details flex f-col f-center">
+                <a class="look-book" href=""></a>
+                <a
+                  class="title"
+                  href="/<%= product.department %>/<%= product._id %>"
+                  ><%= product.title %></a
+                >
+                <div class="flex f-center">
+                  <% if (product.sale_price) { %>
+                  <p class="sale price currency"><%= product.sale_price %></p>
+                  <% } %>
+                  <p class="regular price currency">
+                    <%= product.regular_price %>
+                  </p>
+                </div>
+                <!-- <div class="variations flex">
+                    <div class="color" id="c1"></div>
+                    <div class="color" id="c2"></div>
+                    <div class="color" id="c3"></div>
+                    <div class="color" id="c4"></div>
+                    <h3>+7</h3>
+                  </div> -->
+              </div>
+            </div>
+
+            <% }) }%>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
